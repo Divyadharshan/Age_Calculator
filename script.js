@@ -37,11 +37,9 @@ function Age(){
         else{
             for(let k=1; k<m1; k++){
                 c+=n_y[k-1];
-                console.log(c);
             }
         }
         c+=d1;
-        console.log(c);
     }
     else{
         if (t){
