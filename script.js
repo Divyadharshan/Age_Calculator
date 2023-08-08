@@ -25,17 +25,16 @@ function Age(){
                 c+=n_y[k-1];
             }
         }
-        c-=d-1
-        console.log(c);
+        c-=d;
     }
     else if (i==y1){
         if (t){
-            for(let k=1; k<m1; k++){
+            for(let k=1; k<=m1; k++){
                 c+=l_y[k-1];
             }
         }
         else{
-            for(let k=1; k<m1; k++){
+            for(let k=1; k<=m1; k++){
                 c+=n_y[k-1];
             }
         }
@@ -44,24 +43,12 @@ function Age(){
     else{
         if (t){
             c+=366
-            b+=366
         }
         else{
             c+=365
-            b+=365
         }
     }
  }
-    if (y1-y-1<0){
-        show.innerText=`You are less than one year old.`;
-    }
-    else if (y1-y-1<=0){
-        show.innerText=`You are Approximately one year old.`;
-    }
-    else{
-       console.log(c);
-       console.log(b);
-       show.innerText=`You are ${y1-y-1} years, ${Math.round((c-b)/30)} months, ${(c-b)%30} days old.`;
-    }
+    show.innerText=`You are ${Math.floor(c/365)} years, ${Math.floor((c%365)/31)} months, ${(c%365)%31} days old.`;
 }
 bu.addEventListener("click",Age);
