@@ -1,54 +1,35 @@
 let bu = document.querySelector("button");
+function getdays(year,month){
+  return new Date(year,month,0).getDate();
+}
 function Age(){
   let d = document.getElementById("d").value;
   let m = document.getElementById("m").value;
   let y = document.getElementById("y").value; 
   let show = document.querySelector('p');
-  let c = 0;
-  let b = 0;
-  let n_y = [31,28,31,30,31,30,31,31,30,31,30,31]
-  let l_y = [31,29,31,30,31,30,31,31,30,31,30,31]
   let today = new Date();
   let d1 = today.getDate();
   let m1 = today.getMonth();
   let y1 = today.getFullYear();
-  for(let i=y; i<=y1; i++){
-    let t=(i%4==0 && i%100!=0 || i%400==0)
-    if (i==y){
-        if (t){
-            for(let k=m; k<13; k++){
-                c+=l_y[k-1];
-            }
-        }
-        else{
-            for(let k=m; k<13; k++){
-                c+=n_y[k-1];
-            }
-        }
-        c-=d;
-    }
-    else if (i==y1){
-        if (t){
-            for(let k=1; k<=m1; k++){
-                c+=l_y[k-1];
-            }
-        }
-        else{
-            for(let k=1; k<=m1; k++){
-                c+=n_y[k-1];
-            }
-        }
-        c+=d1;
-    }
-    else{
-        if (t){
-            c+=366
-        }
-        else{
-            c+=365
-        }
-    }
- }
-    show.innerText=`You are ${Math.floor(c/365)} years, ${Math.floor((c%365)/31)} months, ${(c%365)%31} days old.`;
+  let d2,m2,y2;
+  y2=y1-y;
+  if(m1>=m){
+    m2=m1-m;
+  }
+  else{
+    y3--;
+    m2=12+m1-m;
+  }
+  if (d1>=d){
+    d2=d1-d;
+  }
+  else{
+    d2=getdays(y,m)+d1-d;
+  }
+  if (m2<0){
+    m2=11;
+    y2--;
+  }
+    show.innerText=`You are ${y2} years, ${m2} months, ${d2} days old.`;
 }
 bu.addEventListener("click",Age);
