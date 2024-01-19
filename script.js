@@ -31,6 +31,7 @@ function Age(){
     m3=11;
     y3--;
   }
-    show.innerText=`You are ${y2} years, ${m2} months, ${d2} days old.`;
+   console.log(y3,m3,d3);
+    show.innerText=`You are ${y3} years, ${m3} months, ${d3} days old.`;
 }
 bu.addEventListener("click",Age);
