@@ -3,32 +3,33 @@ function getdays(year,month){
   return new Date(year,month,0).getDate();
 }
 function Age(){
-  let d = document.getElementById("d").value;
-  let m = document.getElementById("m").value;
-  let y = document.getElementById("y").value; 
+  let d1 = document.getElementById("d").value;
+  let m1 = document.getElementById("m").value+1;
+  let y1 = document.getElementById("y").value; 
   let show = document.querySelector('p');
   let today = new Date();
-  let d1 = today.getDate();
-  let m1 = today.getMonth();
-  let y1 = today.getFullYear();
-  let d2,m2,y2;
-  y2=y1-y;
-  if(m1>=m){
-    m2=m1-m;
+  let d2 = today.getDate();
+  let m2 = today.getMonth()+1;
+  let y2 = today.getFullYear();
+  let d3,m3,y3;
+  y3=y2-y1;
+  if(m2>=m1){
+    m3=m2-m1;
   }
   else{
-    y2--;
-    m2=12+m1-m;
+    y3--;
+    m3=12+m2-m1;
   }
-  if (d1>=d){
-    d2=d1-d;
+  if (d2>=d1){
+    d3=d2-d1;
   }
   else{
-    d2=getdays(y,m)+d1-d;
+    m3--;
+    d3=getdays(y1,m1)+d2-d1;
   }
-  if (m2<0){
-    m2=11;
-    y2--;
+  if (m3<0){
+    m3=11;
+    y3--;
   }
     show.innerText=`You are ${y2} years, ${m2} months, ${d2} days old.`;
 }
