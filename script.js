@@ -17,7 +17,7 @@ function Age(){
     m2=m1-m;
   }
   else{
-    y3--;
+    y2--;
     m2=12+m1-m;
   }
   if (d1>=d){
